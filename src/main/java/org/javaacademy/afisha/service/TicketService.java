@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.javaacademy.afisha.dto.TicketDto;
 import org.javaacademy.afisha.entity.Ticket;
 import org.javaacademy.afisha.repository.TicketRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -6,13 +6,9 @@ import org.javaacademy.afisha.dto.PlaceDtoRq;
 import org.javaacademy.afisha.entity.Place;
 import org.javaacademy.afisha.repository.PlaceRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
-//Создать сервис + контроллер, позволяющий заводить новые места проведения
-// (на вход: наименования места, адрес, город)
-// и получать список всех существующих мест проведений
 @Service
 @RequiredArgsConstructor
 public class PlaceService {

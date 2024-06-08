@@ -1,24 +1,16 @@
 package org.javaacademy.afisha.repository;
 
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.javaacademy.afisha.entity.Event;
-import org.javaacademy.afisha.entity.EventType;
-import org.javaacademy.afisha.entity.Place;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
-
 import java.math.BigDecimal;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -66,7 +58,8 @@ public class EventRepository {
 
     public Integer findEventId(String eventName) {
         String sql = "select id from application.event where name = '%s'".formatted(eventName);
-        List<Integer> idList = (List<Integer>) jdbcTemplate.execute(sql, (PreparedStatementCallback<Object>) preparedStatement -> {
+        List<Integer> idList = (List<Integer>) jdbcTemplate.execute(sql,
+                (PreparedStatementCallback<Object>) preparedStatement -> {
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Integer> ids = new LinkedList<>();
             while (resultSet.next()) {

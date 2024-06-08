@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.javaacademy.afisha.entity.EventType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,8 +15,8 @@ public class EventTypeRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public void saveEventType(String name) {
-        String sql = "insert into application.event_type (name) values(?)";
-        jdbcTemplate.update(sql, name);
+        String sql = "insert into application.event_type (name) values('%s')".formatted(name);
+        jdbcTemplate.execute(sql);
     }
 
     public Optional<EventType> findEventTypeById(int id) {

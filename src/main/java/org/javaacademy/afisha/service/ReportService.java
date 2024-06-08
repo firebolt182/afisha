@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.javaacademy.afisha.entity.Report;
 import org.javaacademy.afisha.repository.ReportRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
